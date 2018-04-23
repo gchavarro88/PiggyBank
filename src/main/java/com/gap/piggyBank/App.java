@@ -22,13 +22,14 @@ public class App
     	do {
     		showMenu();
     		try {
-    			option = scanner.nextInt();
+    			option = Integer.parseInt(scanner.nextLine());
     			switch (option) {
 				case 1:
 					do{
+						showDenomiantionMenu();
 						try {
 							denomination = 0;
-							denomination = scanner.nextInt();
+							denomination = Integer.parseInt(scanner.nextLine());
 							switch (denomination) {
 							case 1:
 								piggyBank.addCoins(1, 0, 0, 0, 0);
@@ -54,7 +55,7 @@ public class App
 							System.out.println("Invalid data, please try again!");
 							denomination =  0;
 						}
-					}while(denomination < 1 && denomination > 5);
+					}while(denomination < 1 || denomination > 5);
 				break;
 				case 2:
 					System.out.println("There are "+piggyBank.totalCoins()+" coins at Piggy Bank!");
@@ -64,7 +65,7 @@ public class App
 					do{
 						try {
 							denomination = 0;
-							denomination = scanner.nextInt();
+							denomination = Integer.parseInt(scanner.nextLine());
 							switch (denomination) {
 							case 1:
 								result = piggyBank.totalCoinsByDenomination(Denomination.FIFTY);
@@ -90,11 +91,12 @@ public class App
 							System.out.println("Invalid data, please try again!");
 							denomination =  0;
 						}
-					}while(denomination < 1 && denomination > 5);
+					}while(denomination < 1 || denomination > 5);
 					System.out.println("There are "+result+" coins of that denomination at Piggy Bank!");
 				break;
 				case 4:
 					System.out.println("Good Bye!");
+					break;
 				default:
 					System.out.println("Invalid data, please try again!");
 				break;
@@ -115,6 +117,7 @@ public class App
     	System.out.println("Press 3 To know how many coins are in the Piggy Bank by a specific denomination.");
     	System.out.println("Press 4 To exit.");
     	System.out.println("Please select one option!");
+    	System.out.println("\n\n");
     }
     
     public static void showDenomiantionMenu() {
@@ -125,5 +128,6 @@ public class App
     	System.out.println("Press 3 to choice 200");
     	System.out.println("Press 4 to choice 500");
     	System.out.println("Press 5 to choice 1000");
+    	System.out.println("\n\n");
     }
 }
